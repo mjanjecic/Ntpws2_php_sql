@@ -25,6 +25,8 @@ function Include_page() {
     else if ($_GET['menu'] == "login") { include("login.php"); }
     #register
     else if ($_GET['menu'] == "register") { include("register.php"); }
+    #userPage
+    else if ($_GET['menu'] == "userPage") { include("userPage.php"); }
 }
 ?>
 
@@ -50,12 +52,16 @@ function Include_page() {
             <a href="index.php?menu=aboutUs">About us</a>
             <a href="index.php?menu=gallery">Gallery</a>
             <?php
-            if (isset($_COOKIE['username'])) {
-                print '<p class="loginNav">'.$_COOKIE['username'].'</p>';
+            session_start();
+            if (isset($_SESSION['user']['username'])) {
+                print '<a href="index.php?menu=userPage" class="loginNav">'.$_SESSION['user']['username'].'</a>
+                       <a href="logout.php">Log out</a>';
+            } else {
+                print '<a href="index.php?menu=login" class="loginNav">Login</a>
+                       <a href="index.php?menu=register">Sign up</a>';
             }
             ?>
-            <a href="index.php?menu=login" class="loginNav">Login</a>
-            <a href="index.php?menu=register">Sign up</a>
+
         </nav>
     </header>
 <?php
