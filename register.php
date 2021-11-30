@@ -14,12 +14,8 @@
         <?php
         include 'countries.php';
         ?>
-        <label name="city" for="city">City</label>
-        <input type="text" name="city" id="city" required value="Zagreb">
-        <label name="address" for="address">Adress</label>
-        <input type="text" name="address" id="address" required>
         <label name="birth_date" for="birth_date">Birth Date</label>
-        <input type="text" name="birth_date" id="birth_date" required>
+        <input type="date" name="birth_date" id="birth_date" required>
         <?php
             if (isset($_GET['error'])) {
 
@@ -35,7 +31,7 @@
             }
         ?>
         <button type="submit" name="submit">Register</button>
-    </form>
         <p>Already have an account?</p>
         <a href="index.php?menu=login">Log in</a>
+    </form>
 </main>

@@ -1,25 +1,23 @@
-<?php
-print '
+
     <main>
-        <h1>Lorem ipsum dolor sit amet</h1>
+        <h1>Welcome!</h1>
         <figure>
             <img src="images/figure.jpg">
             <figcaption>Lorem ipsum</figcaption>
         </figure>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum.
-            Enim lobortis scelerisque fermentum dui faucibus. Netus et malesuada fames ac turpis. Ultrices vitae auctor eu augue ut lectus arcu.
-            Ut diam quam nulla porttitor massa. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Ut sem nulla pharetra diam sit amet.
-            A diam maecenas sed enim. Purus faucibus ornare suspendisse sed nisi lacus sed viverra.
+        <p>Blender is the free and open source 3D creation suite.
+            It supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation.
+            Advanced users employ Blender’s API for Python scripting to customize the application and write specialized tools;
+            often these are included in Blender’s future releases.
+            Blender is well suited to individuals and small studios who benefit from its unified pipeline and responsive development process.
+         </p>
+         <p>
+             Blender is cross-platform and runs equally well on Linux, Windows, and Macintosh computers. Its interface uses OpenGL to provide a consistent experience.
         </p>
-        <p>Et netus et malesuada fames ac turpis egestas maecenas. Dictum at tempor commodo ullamcorper a.
-            At elementum eu facilisis sed odio morbi quis commodo. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque.
-            In aliquam sem fringilla ut morbi tincidunt augue interdum velit. Nulla facilisi nullam vehicula ipsum a.
-            Vivamus arcu felis bibendum ut tristique et egestas quis. Libero justo laoreet sit amet cursus sit amet dictum.
+        <p>As a community-driven project under the GNU General Public License (GPL), the public is empowered to make small and large changes to the code base, which leads to new features,
+            responsive bug fixes, and better usability.
+            Blender has no price tag, but you can invest, participate, and help to advance a powerful collaborative tool: Blender is your own 3D software.
         </p>
-        <p>Nec ultrices dui sapien eget mi proin sed libero. Tincidunt dui ut ornare lectus sit amet est placerat. Tortor at auctor urna nunc id cursus metus.
-            Pretium lectus quam id leo in. Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla. Cras adipiscing enim eu turpis.
-            Turpis massa sed elementum tempus egestas sed sed risus pretium. Amet nisl purus in mollis nunc sed id. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim.
+        <p>Blender Foundation is a member of Open Invention Network, Khronos, Linux Foundation and the Academy Software Foundation.
         </p>
     </main>
-';

@@ -1,6 +1,3 @@
-<?php
-
-print '
 <main>
     <h1>About us</h1>
     <div class="VideoContainer">
@@ -24,4 +21,3 @@ print '
         Turpis massa sed elementum tempus egestas sed sed risus pretium. Amet nisl purus in mollis nunc sed id. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim.
     </p>
 </main>
-';

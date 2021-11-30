@@ -7,14 +7,8 @@ function Include_page() {
     if (!isset($_GET['menu']) || $_GET['menu'] == "home") { include("home.php"); }
     # News
     else if ($_GET['menu'] == "news") { include("news.php"); }
-    # News1
-    else if ($_GET['menu'] == "news1") { include("news1.php"); }
-    # News2
-    else if ($_GET['menu'] == "news2") { include("news2.php"); }
-    # News3
-    else if ($_GET['menu'] == "news3") { include("news3.php"); }
-    # News4
-    else if ($_GET['menu'] == "news4") { include("news4.php"); }
+    # NewsDetails
+    else if ($_GET['menu'] == "newsDetails") { include("newsDetails.php"); }
     # Contact
     else if ($_GET['menu'] == "contact") { include("contact.php"); }
     # About Us
@@ -27,6 +21,14 @@ function Include_page() {
     else if ($_GET['menu'] == "register") { include("register.php"); }
     #userPage
     else if ($_GET['menu'] == "userPage") { include("userPage.php"); }
+    #admin
+    else if ($_GET['menu'] == "admin") { include("admin.php"); }
+    #adminUsers
+    else if ($_GET['menu'] == "adminUsers") { include("admin/users.php"); }
+    #adminNews
+    else if ($_GET['menu'] == "adminNews") { include("admin/news.php"); }
+    #adminEditNews
+    else if ($_GET['menu'] == "editNews") { include("admin/editNews.php"); }
 }
 ?>
 
@@ -36,15 +38,15 @@ function Include_page() {
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="keywords" content="TVZ, HTML, Test">
-    <meta name="description" content="First project for college">
+    <meta name="description" content="Projekt za NTPWS">
     <meta name="author" content="Matija Janječić">
     <link rel="icon" href="images/icon.png">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     <header>
-        <div class="banner"></div>
+        <div class="banner">
+        </div>
         <nav class="navbar">
 			<a href="index.php?menu=home">Home</a>
 			<a href="index.php?menu=news">News</a>
@@ -54,8 +56,12 @@ function Include_page() {
             <?php
             session_start();
             if (isset($_SESSION['user']['username'])) {
-                print '<a href="index.php?menu=userPage" class="loginNav">'.$_SESSION['user']['username'].'</a>
-                       <a href="logout.php">Log out</a>';
+                print '<a href="index.php?menu=userPage" class="loginNav">'.$_SESSION['user']['username'].'</a>';
+                if($_SESSION['user']['role'] == 'ADMIN') {
+                    print '<a href="index.php?menu=admin">Admin</a>';
+                }
+                    print '<a href="logout.php">Log out</a>';
+
             } else {
                 print '<a href="index.php?menu=login" class="loginNav">Login</a>
                        <a href="index.php?menu=register">Sign up</a>';
@@ -69,10 +75,11 @@ function Include_page() {
 ?>
 
     <footer>
-        <p>Created by Matija
+        <p>Copyright &copy; Matija Janječić
             <a href="https://github.com/">
                 <img src="images/github.png">
             </a>
+
         </p>
     </footer>
 </body>

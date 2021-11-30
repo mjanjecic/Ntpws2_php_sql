@@ -1,5 +1,16 @@
 * {
-    font-family: Arial;
+    font-family: 'Oswald', sans-serif;
+}
+
+body, main {
+    margin: 0;
+}
+
+#darkModeButton {
+    height: 50px;
+    float: left;
+    background: black;
+    color: white;
 }
 
 .banner {
@@ -8,13 +19,18 @@
     background-size: cover;
     background-position: center;
     height: 500px;
-    background-image: url("images/banner.jpeg");
+    background-image: url("images/blender_banner_2.jpg");
 }
 
 .navbar {
     display: flex;
     background-color: #333;
     justify-content: start;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
 }
 
 .navbar a {
@@ -57,7 +73,9 @@ figure {
 }
 
 main p {
-    text-align: justify;
+    margin: 1em 0;
+    line-height: 1.4em;
+    letter-spacing: 1px;
 }
 
 
@@ -181,6 +199,11 @@ li {
     text-align: justify;
 }
 
+button {
+    color: white;
+    font-weight: bold;
+}
+
 .articleContent a {
     text-decoration: none;
 }
@@ -219,12 +242,19 @@ form input, select{
 }
 
 form button {
-    width: 30%;
+    width: 100%;
     padding: 1%;
     margin: 1%;
     border-radius: 8px;
     border-color: #26b5f3;
     background: #26b5f3;
+}
+
+#deleteButton {
+    background: #9f0000;
+    border-color: #6c0000;
+    color: white;
+    width: 100%;
 }
 
 .GalleryGrid {
@@ -280,6 +310,34 @@ form button {
 
 video {
     width: 100%;
+}
+
+table {
+    width: 100%;
+
+}
+
+table th {
+    text-align: left;
+
+}
+
+table td {
+    width: 25%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 15px 0 15px 0;
+}
+
+.newsButtons {
+    padding: 10px 0 10px 0;
+}
+
+table a, .newsButtons a {
+    text-decoration: none;
+    color: white;
+    background: #26b5f3;
+    padding: 5px;
 }
 
 @media screen and (max-width: 600px) {

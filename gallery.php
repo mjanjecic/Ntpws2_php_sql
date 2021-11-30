@@ -1,6 +1,4 @@
-<?php
 
-print '
 <main>
     <h1>Gallery</h1>
     <div class="GalleryGrid" id="GalleryGrid">
@@ -51,9 +49,9 @@ print '
             <img src="images/gallery/4.jpg" alt="Image" onclick="OpenImage(this.src)">
             <figcaption>Image 4</figcaption>
         </figure>
-
     </div>
 </main>
+
 
 <script>
     function OpenImage(imageSrc) {
@@ -67,4 +65,3 @@ print '
         document.getElementById("FullImage").style.display="none";
     }
 </script>
-';

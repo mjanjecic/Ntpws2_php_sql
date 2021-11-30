@@ -40,7 +40,7 @@ if (mysqli_num_rows($user_check)!=0) {
 } else if (mysqli_num_rows($email_check)!=0){
     header("location: ./index.php?menu=register&error=emailExists");
 } else {
-    $query = "INSERT INTO users (username, password, full_name, email, country_id, birth_date) VALUES ('$username', '$password', '$full_name', '$email', '$country', '$birt_date')";
+    $query = "INSERT INTO users (username, password, full_name, email, country_id, role, birth_date) VALUES ('$username', '$password', '$full_name', '$email', '$country', 'NONE', '$birt_date')";
     if (mysqli_query($conn, $query)) {
         echo "User added successfully.";
         header("location: ./index.php?menu=login");

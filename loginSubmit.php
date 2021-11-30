@@ -19,7 +19,10 @@ if (mysqli_num_rows($user_check)!=0) {
     $hash = $row['password'];
     $verify_password = password_verify($password, $hash);
 
-    if ($verify_password) {
+    if(is_null($row['role'])) {
+        header("location: ./index.php?menu=login&error=unauthorized");
+    }
+    else if ($verify_password) {
         echo 'Password Verified!';
         $country_id = $row['country_id'];
 
@@ -28,15 +31,15 @@ if (mysqli_num_rows($user_check)!=0) {
         $country = $country_row['country_name'];
         session_start();
         $_SESSION['user']['username'] = $row['username'];
-        $_SESSION['user']['full_name'] = $row['full_name'];;
-        $_SESSION['user']['email'] = $row['email'];;
+        $_SESSION['user']['full_name'] = $row['full_name'];
+        $_SESSION['user']['email'] = $row['email'];
         $_SESSION['user']['country'] = $country;
-        $_SESSION['user']['birth_date'] = $row['birth_date'];;
+        $_SESSION['user']['role'] = $row['role'];
+        $_SESSION['user']['birth_date'] = $row['birth_date'];
         header("location: ./index.php?menu=home");
-    }
-    else {
-        echo 'Incorrect Password!';
+    } else {
+        header("location: ./index.php?menu=login&error=incorrectInput");
     }
 } else {
-    header("location: ./index.php?menu=login&error=userExists");
+    header("location: ./index.php?menu=login&error=incorrectInput");
 }
