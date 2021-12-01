@@ -6,9 +6,12 @@ $email=$_SESSION['user']['email'];
 $country=$_SESSION['user']['country'];
 $birth_date=$_SESSION['user']['birth_date'];
 print '<main>
-<p>Username: '.$username.'</p>
-<p>Email: '.$email.'</p>
-<p>Full name: '.$full_name.'</p>
-<p>Country: '.$country.'</p>
-<p>Birth Date: '.$birth_date.'</p>
+<h1>User data</h1>
+<ul id="userDataShow">
+    <li>Username: '.$username.'</li>
+    <li>Email: '.$email.'</li>
+    <li>Full name: '.$full_name.'</li>
+    <li>Country: '.$country.'</li>
+    <li>Birth Date: '.$birth_date.'</li>
+</ul>
 </main>';

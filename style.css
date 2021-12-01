@@ -4,6 +4,17 @@
 
 body, main {
     margin: 0;
+    background: #202124;
+    color: white;
+    text-align: justify;
+}
+
+body h1 {
+    text-align: center;
+}
+
+.pageTitle {
+    padding: 5px;
 }
 
 #darkModeButton {
@@ -11,6 +22,17 @@ body, main {
     float: left;
     background: black;
     color: white;
+}
+
+.ImageLink {
+    width: 95%;
+    padding-top: 5px;
+    margin: auto;
+    transition: 0.25s;
+}
+
+.ImageLink:hover {
+    width: 100%;
 }
 
 .banner {
@@ -46,6 +68,27 @@ body, main {
     color: #ffffff;
 }
 
+#adminLinks {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#adminLinks a {
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    padding: 10px 0 10px 0;
+}
+
+#adminLinks a:hover {
+    background: #a10000;
+}
+
+
+
 .navbar a.active {
     background-color: #9f0000;
     color: white;
@@ -53,13 +96,6 @@ body, main {
 
 .loginNav {
     margin-left: auto;
-}
-
-main {
-    width: 100%;
-    #display: flex;
-    #flex-direction: column;
-    #flex-wrap: wrap;
 }
 
 figure {
@@ -76,6 +112,7 @@ main p {
     margin: 1em 0;
     line-height: 1.4em;
     letter-spacing: 1px;
+    text-justify: distribute-all-lines;
 }
 
 
@@ -90,6 +127,11 @@ footer {
 
 footer img {
     width: 24px;
+}
+
+.renderLink {
+    text-decoration: none;
+    color: #8fa8d6;
 }
 
 @media screen and (max-width: 600px) {
@@ -150,6 +192,7 @@ li {
 
 .grid-1 time {
     align-items: end;
+    padding-top: 25px;
 }
 
 .grid-2 {
@@ -162,32 +205,33 @@ li {
 }
 
 
-.newsImage {
+.renderImage {
     display: grid;
     grid-template-columns: 100%;
 }
 
-.newsImage img {
+.renderImage img {
+    object-fit: cover;
+    transition: 0.25s;
+    width: 99%;
+}
+
+.renderImage img:hover {
     object-fit: cover;
     width: 100%;
 }
 
-.newsImage time {
+.renderImage time {
     justify-content: center;
     text-align: center;
 }
 
 .imageGallery {
     display: flex;
-}
-
-.imageGallery figure {
     width: 90%;
+    margin: 50px auto auto;
 }
 
-.imageGallery figcaption {
-    margin-top:auto;
-}
 
 .imageGallery img {
     width: auto;
@@ -215,10 +259,8 @@ button {
 }
 
 .map {
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    padding: 5px 10% 5px 10%;
+    margin: auto;
+
     width: 80%;
     height: calc(100vh - 16px);
 }
@@ -231,9 +273,18 @@ button {
 form {
     font-size: 24px;
     display: flex;
+    margin: auto;
     flex-direction: column;
-    padding-left: 10%;
-    padding-right: 30%;
+    margin: auto;
+    width: 90%;
+}
+form * {
+    border-radius: 8px;
+}
+
+.UserForm {
+    margin: auto;
+    width: 50%;
 }
 
 form input, select{
@@ -242,10 +293,9 @@ form input, select{
 }
 
 form button {
+    margin-top: 10px;
     width: 100%;
-    padding: 1%;
-    margin: 1%;
-    border-radius: 8px;
+    padding: 1% 0 1% 0;
     border-color: #26b5f3;
     background: #26b5f3;
 }
@@ -300,6 +350,14 @@ form button {
     padding: 1% 10% 0 10%;
 }
 
+#userDataShow {
+    font-size: 24px;
+}
+
+#userDataShow * {
+    border: none;
+    padding: 10px 0 10px 0;
+}
 
 .VideoContainer {
     display: block;
@@ -329,11 +387,15 @@ table td {
     padding: 15px 0 15px 0;
 }
 
-.newsButtons {
+.renderButtons {
     padding: 10px 0 10px 0;
 }
 
-table a, .newsButtons a {
+.renderContainer li {
+    padding: 50px 0 50px 0;
+}
+
+table a, .renderButtons a {
     text-decoration: none;
     color: white;
     background: #26b5f3;
@@ -347,16 +409,28 @@ table a, .newsButtons a {
         padding-top: 1px;
     }
 
+    .VideoContainer {
+        display: block;
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+
     .grid-1 {
         display: flex;
     }
+
+    .grid-1 time {
+        padding-top: 25px;
+    }
+
 
     .grid-1 img {
         width: 100%;
     }
 
 
-    .newsImage img {
+    .renderImage img {
         object-fit: cover;
         width: 100%;
     }

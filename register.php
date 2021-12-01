@@ -1,11 +1,11 @@
 <main>
-    <form method="post" action="registerResult.php">
+    <form method="post" action="registerResult.php" class="UserForm">
         <label name="username" for="username">Username</label>
         <input type="text" name="username" id="username" required placeholder="Username">
         <label name="password" for="password">Password</label>
         <input type="password" name="password" id="password" required placeholder="Password">
         <label name="rptpassword" for="rptpassword">Repeat Password</label>
-        <input type="rptpassword" name="rptpassword" id="rptpassword" required placeholder="Repeat password">
+        <input type="password" name="rptpassword" id="rptpassword" required placeholder="Repeat password">
         <label name="full_name" for="full_name">Full name</label>
         <input type="text" name="full_name" id="full_name" required placeholder="John Doe">
         <label name="email" for="email">Email</label>
@@ -32,6 +32,6 @@
         ?>
         <button type="submit" name="submit">Register</button>
         <p>Already have an account?</p>
-        <a href="index.php?menu=login">Log in</a>
+        <a href="index.php?menu=login" style="color: #26b5f3">Log in</a>
     </form>
 </main>

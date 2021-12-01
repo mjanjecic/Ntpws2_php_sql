@@ -20,17 +20,14 @@ if(isset($_GET['id'])) {
         print '
 <main >
 <div class="imageGallery">
-    <figure>
-      <img src="renders/'.$image.'">
-      <figcaption>Vrijeme</figcaption>
-    </figure>
+      <img src="renders/'.$image.'" alt="'.$image.'">
     </div>
   <div class="articleContent">
   
     <h1>'.$row['title'].'</h1>
     <h3>'.$row['description'].'</h3>
     <p>'.$row['content'].'</p>
-    <a href="index.php?menu=news">Natrag na vijesti</a>
+    <a href="index.php?menu=renders" class="renderLink">See other renders</a>
   </div>
 </main>';
     }

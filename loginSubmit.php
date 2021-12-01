@@ -19,7 +19,7 @@ if (mysqli_num_rows($user_check)!=0) {
     $hash = $row['password'];
     $verify_password = password_verify($password, $hash);
 
-    if(is_null($row['role'])) {
+    if(is_null($row['role']) || $row['role'] == 'NONE') {
         header("location: ./index.php?menu=login&error=unauthorized");
     }
     else if ($verify_password) {

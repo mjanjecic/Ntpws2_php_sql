@@ -1,9 +1,9 @@
 
     <main>
-        <h1>Welcome!</h1>
-        <figure>
-            <img src="images/figure.jpg">
-            <figcaption>Lorem ipsum</figcaption>
+        <h1 class="pageTitle">Welcome!</h1>
+        <figure >
+            <a href="https://www.youtube.com/watch?v=_cMxraX_5RE"  class="ImageLink"><img style="width: 100%" src="images/HomeImage.jpg"></a>
+            <figcaption>Sprite Fright - Blender Open Movie</figcaption>
         </figure>
         <p>Blender is the free and open source 3D creation suite.
             It supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation.

@@ -6,10 +6,6 @@
 
 require 'DB/db.inc.php';
 
-if(isset($_POST['submit'])) {
-    print "SUBMIT IS SET!";
-}
-
 
 #SUBMIT
 if(isset($_POST['submit'])) {
@@ -25,7 +21,7 @@ if(isset($_POST['submit'])) {
         mysqli_query($conn, $query);
         if ($conn->query($query) === TRUE) {
             echo "Record updated successfully";
-            header("location: index.php?menu=editNews&id=".$_GET['id']."");
+            header("location: index.php?menu=adminNews");
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -38,26 +34,19 @@ if(isset($_POST['submit'])) {
             $ext = strtolower(strrchr($_FILES['image']['name'], "."));
             $image = $_FILES['image']['name'];
             copy($_FILES['image']['tmp_name'], "renders/".$image);
-            print "Image stuff";
             if ($ext == '.jpg') {
-            print "Image stuff";
                 $query = "INSERT INTO images (image_name)  VALUES ('". $image ."');";
                 $result = mysqli_query($conn, $query);
                 $image_id = mysqli_insert_id($conn);
-                print "<br>IMAGE ID $image_id<br>";
-                print $result;
-                print "<br>";
+
                 if ($result == 1) {
                     echo "Image uploaded successfully";
-                    #header("location: index.php?menu=adminNews");
+                    #header("location: index.php?menu=renders");
                 } else {
                     print "Error uploading image: " . $conn->error;
                     #header("location: index.php?menu=admin");
                 }
             }
-
-            #delete old image
-            unlink('renders/1.jpeg');
         }
 
         #News
@@ -66,30 +55,44 @@ if(isset($_POST['submit'])) {
         #mysqli_query($conn, $query);
         if ($conn->query($query) === TRUE) {
             echo "Record updated successfully";
-            #header("location: index.php?menu=adminNews");
+            header("location: index.php?menu=renders");
         } else {
             print "Error updating record: " . $conn->error;
-            #header("location: index.php?menu=admin");
+            header("location: index.php?menu=admin");
         }
     }
 }
 
 #DELETE NEWS
 else if(isset($_GET['delete'])) {
-    $query = mysqli_query($conn, "DELETE FROM news WHERE id = " . $_GET['id'] . " ;");
-    if ($conn->query($query) == TRUE) {
-        echo "Article deleted successfully";
-        header("location: index.php?menu=adminNews");
+    $newsInfoQuery=mysqli_query($conn, "SELECT * FROM news WHERE id = ".$_GET['id'].";");
+    if (mysqli_num_rows($newsInfoQuery) != 0) {
+        $newsInfo = mysqli_fetch_assoc($newsInfoQuery);
+        $query = mysqli_query($conn, "DELETE FROM news WHERE id = " . $_GET['id'] . " ;");
+        if ($conn->query($query) == TRUE) {
+            echo "Article deleted successfully";
+            $imageInfoQuery = mysqli_query($conn, "SELECT * FROM images WHERE id = " . $newsInfo['image_id'] . ";");
+            if (mysqli_num_rows($imageInfoQuery) != 0) {
+                $imageInfo = mysqli_fetch_assoc($imageInfoQuery);
+                $deleteImageQuery = mysqli_query($conn, "DELETE FROM images WHERE id = " . $newsInfo['image_id'] . " ;");
+                if ($conn->query($deleteImageQuery) == TRUE) {
+                    unlink('renders/' . $imageInfo['image_name']);
+                    echo "Image deleted successfully";
+                    header("location: index.php?menu=adminNews");
+                }
+            }
+        }
+
     } else {
-        echo "Error deleting record: " . $conn->error;
-    }
+            echo "Error deleting record: " . $conn->error;
+        }
 }
 
 #CREATE NEWS FORM
-else if(isset($_GET['createNews'])) {
+else if(isset($_GET['createRenders'])) {
     print '
             <main>
-            <h1>Create news</h1>
+            <h1>Create render</h1>
                 <form method="post" action="" enctype="multipart/form-data">
                     <input type="hidden" id="addNews" name="addNews" value="true">
                     <label name="title" for="title">Title</label>
@@ -103,16 +106,16 @@ else if(isset($_GET['createNews'])) {
                     <label name="archived" for="archived">Archive</label>
                     <span>
                         <label name="archived" for="archived">Yes</label>       
-                        <input type="radio" id="archived" name="archived" value="0">
+                        <input type="radio" id="archived" name="archived" value="Y">
                         <label name="archived" for="archived">No</label>
-                        <input type="radio" id="archived" name="archived" value="1" checked>
+                        <input type="radio" id="archived" name="archived" value="N" checked>
                     </span>
                     <label name="approved" for="approved">Approve</label>
                     <span>
                         <label name="archived" for="approved">Yes</label>       
-                        <input type="radio" id="approved" name="approved" value="1" checked>
+                        <input type="radio" id="approved" name="approved" value="Y" checked>
                         <label name="archived" for="approved">No</label>
-                        <input type="radio" id="approved" name="approved" value="0">
+                        <input type="radio" id="approved" name="approved" value="N">
                     </span>
         <button type="submit" name="submit">Submit</button>
     </form>
@@ -124,7 +127,6 @@ else if(isset($_GET['id'])){
     $newsContent=mysqli_query($conn, "SELECT * FROM news WHERE id = ".$_GET['id'].";");
     if (mysqli_num_rows($newsContent) != 0) {
         $row = mysqli_fetch_assoc($newsContent);
-        print $row['archive'];
         print '
             <main>
             <h1>Edit news</h1>
@@ -139,14 +141,14 @@ else if(isset($_GET['id'])){
                     <label name="approved" for="approved">Approve</label>
                     <span>
                         <label name="approved" for="approved">Yes</label>       
-                        <input type="radio" id="approved" name="approved" value="1"';
-                        if ($row['approved'] == 1) {
+                        <input type="radio" id="approved" name="approved" value="Y"';
+                        if ($row['approved'] == 'Y') {
                             print "checked";
                         }
                         print'>
                                         <label name="archived" for="approved">No</label>
-                                        <input type="radio" id="approved" name="approved" value="0"';
-                        if ($row['approved'] == 0) {
+                                        <input type="radio" id="approved" name="approved" value="N"';
+                        if ($row['approved'] == 'N') {
                             print "checked";
                         }
                         print'>
@@ -155,14 +157,14 @@ else if(isset($_GET['id'])){
                     <label name="archived" for="archived">Archive</label>
                     <span>
                         <label name="archived" for="archived">Yes</label>       
-                        <input type="radio" id="archived" name="archived" value="1"';
-                        if ($row['archive'] == 1) {
+                        <input type="radio" id="archived" name="archived" value="Y"';
+                        if ($row['archive'] == 'Y') {
                             print "checked";
                         }
                         print'>
                         <label name="archived" for="archived">No</label>
-                        <input type="radio" id="archived" name="archived" value="0"';
-                        if ($row['archive'] == 0) {
+                        <input type="radio" id="archived" name="archived" value="N"';
+                        if ($row['archive'] == 'N') {
                             print "checked";
                         }
                         print'>

@@ -1,5 +1,5 @@
 <main>
-<form method="post" action="loginSubmit.php">
+<form method="post" action="loginSubmit.php" class="UserForm">
     <?php
     if (isset($_GET['error'])) {
         if ($_GET['error'] == "incorrectInput") {
@@ -16,7 +16,7 @@
     <input type="password" name="password" id="password" required placeholder="Password">
     <button type="submit">Log in</button>
     <p>Don't have an account yet?</p>
-    <a href="index.php?menu=register">Register</a>
+    <a href="index.php?menu=register" style="color: #26b5f3">Register</a>
 </form>
 
 </main>

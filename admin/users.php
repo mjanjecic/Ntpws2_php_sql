@@ -20,7 +20,7 @@ if(isset($_POST['edit'])) {
     WHERE id=".$_POST['user_id'].";
     ";
     mysqli_query($conn, $query);
-    header("location: index.php?menu=adminUsers&id=".$_POST['user_id']."");
+    header("location: index.php?menu=adminUsers");
 }
 
 #Delete user
@@ -79,8 +79,7 @@ else {
 
 
 #Show all users
-$allUsers=mysqli_query($conn, "SELECT * FROM users WHERE username != ".$_SESSION['user']['username']." ;");
-
+$allUsers=mysqli_query($conn, "SELECT * FROM users WHERE username != '".$_SESSION['user']['username']."' ;");
 if (isset($_GET['error'])) {
     if ($_GET['error'] == "updateError") {
         print '<p style="color: red">Could not update users!</p>';

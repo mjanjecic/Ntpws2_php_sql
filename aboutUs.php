@@ -5,19 +5,23 @@
             <source src="video/1.mp4" type="video/mp4">
         </video>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Eu turpis egestas pretium aenean pharetra magna ac placerat vestibulum.
-        Enim lobortis scelerisque fermentum dui faucibus. Netus et malesuada fames ac turpis. Ultrices vitae auctor eu augue ut lectus arcu.
-        Ut diam quam nulla porttitor massa. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Ut sem nulla pharetra diam sit amet.
-        A diam maecenas sed enim. Purus faucibus ornare suspendisse sed nisi lacus sed viverra.
+    <h3>The Freedom to Create</h3>
+    <p>
+        Blender's mission is to bring the best 3D technology as tools in the hands of artists, for all platforms, everywhere in the world, free and open source forever.</p>
+   <h3>Free and Open Source</h3>
+    <p>
+        Blender is a public project hosted on blender.org, licensed as GNU GPL, owned by its contributors.
+        For that reason Blender is Free and Open Source software, forever.</p>
+    <h3>It’s about people.</h3>
+    <p>
+        Designers, developers, engineers, artists. All driven by passion. All using Blender to make an impact.</p>
+    <p>This webpage serves as a showcase for various artist's renders done with Blender.
     </p>
-    <p>Et netus et malesuada fames ac turpis egestas maecenas. Dictum at tempor commodo ullamcorper a.
-        At elementum eu facilisis sed odio morbi quis commodo. Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus scelerisque.
-        In aliquam sem fringilla ut morbi tincidunt augue interdum velit. Nulla facilisi nullam vehicula ipsum a.
-        Vivamus arcu felis bibendum ut tristique et egestas quis. Libero justo laoreet sit amet cursus sit amet dictum.
+    <p>
+        Blender is an open source tool and can be downloaded for free <a href="https://www.blender.org/" class="newsLink">Here</a>
     </p>
-    <p>Nec ultrices dui sapien eget mi proin sed libero. Tincidunt dui ut ornare lectus sit amet est placerat. Tortor at auctor urna nunc id cursus metus.
-        Pretium lectus quam id leo in. Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla. Cras adipiscing enim eu turpis.
-        Turpis massa sed elementum tempus egestas sed sed risus pretium. Amet nisl purus in mollis nunc sed id. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim.
+    <p>Users can post their renders and preview them in the "renders" section.
+        Each post has an image of the render, title of the artwork, a short description and an in-depth explanation of methods used to achieve the render.
     </p>
+    <p>Except for images, Blender can be used to create animations such as the one showcased on this page.</p>
 </main>
