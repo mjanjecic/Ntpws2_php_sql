@@ -5,6 +5,10 @@
 
 require 'DB/db.inc.php';
 
+if($_SESSION['user']['role'] != 'ADMIN' && $_SESSION['user']['role'] != 'EDITOR') {
+    header("Location: index.php?menu=login");
+}
+
 #Show all render
 #Approved
 $allApprovedRenders=mysqli_query($conn, "SELECT * FROM news WHERE approved = 'Y' AND archive = 'N';");

@@ -10,9 +10,12 @@ require 'DB/db.inc.php';
 $allApprovedrender=mysqli_query($conn, "SELECT * FROM news WHERE approved = 'Y' AND archive = 'N';");
 
 print '<main>';
+if(isset($_SESSION['user']['role'])) {
+
 print '<nav class="navbar">
             <a href="index.php?menu=editRender&createRenders=true" class="createRenders">Add a Render</a>
         </nav>';
+}
     if(mysqli_num_rows($allApprovedrender) != 0) {
     print '
     <ul class="renderContainer">';

@@ -12,5 +12,5 @@ if ($_SESSION['user']['role'] == 'ADMIN' || $_SESSION['user']['role'] == 'EDITOR
 }
 else {
     $_SESSION['message'] = '<p>Please register or login using your credentials!</p>';
-    header("Location: index.php?menu=adminNews");
+    header("Location: index.php?menu=login");
 }
